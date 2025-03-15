@@ -81,26 +81,25 @@ class LateController extends Controller
 
     public function store(Request $request)
     {
-        $validation = Validator::make($request->all(), [
+        $validation = $request->validate([
             'student_id' => 'required|exists:students,id',
             'date_time_late' => 'required|date',
             'information' => 'required|max:255',
-            'bukti' => 'max:2048',
         ]);
 
-        if ($validation->fails()) {
-            return $this->response_json(false, $validation->errors(), 'Validation failed', null, null);
-        }
-
-        // if ($request->hasFile('bukti')) {
-        //     $filename = $request->bukti->getClientOriginalName();
-        //     $request->bukti->storeAs('public/bukti', $filename);
+        // if ($validation->fails()) {
+        //     return $this->response_json(false, $validation->errors(), 'Validation failed', null, null);
         // }
+
+        if ($request->hasFile('bukti')) {
+            $validation['bukti'] = $request->file('bukti')->store('storage/images/bukti', 'public');
+        }
         
         $late = Late::create([
             'student_id' => $request->student_id,
             'date_time_late' => $request->date_time_late,
             'information' => $request->information,
+            'bukti' => $validation['bukti'] ?? null,
         ]);
 
         return $this->response_json(true, null, 'Success', $late, null);

@@ -55,7 +55,9 @@
         color="darkblue"
         v-if="item.count >= 3"
         elevation="1"
-        class="mr-2">
+        class="mr-2"
+        :href="printUri + '/' + item.student.id"
+        >
         Cetak Surat Pernyataan
       </v-btn>
     </template>
@@ -73,6 +75,7 @@ export default {
     createUri: String,
     deleteUri: String,
     editUri: String,
+    printUri: String,
   },
   data() {
     return {

@@ -18,23 +18,7 @@
             </v-text-field>
         </v-col>
         <v-col col="6" align="right">
-            <v-btn
-                color="green"
-                elevation="3"
-                class="mr-2"
-                href="/admin/student/create"
-            >
-                <v-icon color="white"> mdi-plus </v-icon>
-                <span style="color: white"> Tambah Data </span>
-            </v-btn>
-            <v-btn
-                color="blue"
-                :loading="loading"
-                elevation="3"
-                @click="getDataStudent()"
-            >
-                <v-icon color="white"> mdi-refresh </v-icon>
-            </v-btn>
+            
         </v-col>
     </v-row>
     <v-data-table-server

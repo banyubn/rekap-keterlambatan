@@ -6,6 +6,7 @@
         auth-id="{{ Auth::user()->id }}"
         rayon-uri="{{ route('api.rayon.all') }}"
         detail-uri="{{  route('ps.late.detail', '') }}"
+        print-uri="{{ route('admin.late.print', '') }}"
         >
     </ps-late-recap-table>
 @endsection

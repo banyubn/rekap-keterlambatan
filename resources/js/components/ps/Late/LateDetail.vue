@@ -28,7 +28,7 @@
             <v-card :loading="loading" class="mx-auto" max-width="344">
                 <v-img
                     height="200px"
-                    :src="bannerSrc"
+                    :src="late.bukti ? bannerSrc + '/' + late.bukti : defaultBannerSrc"
                     cover
                 ></v-img>
 
@@ -77,6 +77,7 @@ export default {
         studentUri: String,
         recapUri: String,
         bannerSrc: String,
+        defaultBannerSrc: String,
     },
 
     data: () => ({

@@ -13,8 +13,8 @@
             {{ student.name }}
         </span>
         <span class="text-h6"> | {{ student.nis }} </span>
-        <span class="text-h6"> | {{ student.rombel.rombel }} </span>
-        <span class="text-h6"> | {{ student.rayon.rayon }} </span>
+        <span class="text-h6"> | {{ student.rombel?.rombel || 'N/A' }} </span>
+        <span class="text-h6"> | {{ student.rayon?.rayon || 'N/A' }} </span>
     </div>
     <v-row class="mt-4">
         <v-col
@@ -28,7 +28,7 @@
             <v-card :loading="loading" class="mx-auto" max-width="344">
                 <v-img
                     height="200px"
-                    :src="bannerSrc"
+                    :src="late.bukti ? bannerSrc + '/' + late.bukti : defaultBannerSrc"
                     cover
                 ></v-img>
 
@@ -77,6 +77,7 @@ export default {
         studentUri: String,
         recapUri: String,
         bannerSrc: String,
+        defaultBannerSrc: String,
     },
 
     data: () => ({

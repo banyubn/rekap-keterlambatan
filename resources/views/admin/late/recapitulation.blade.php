@@ -31,6 +31,7 @@
         edit-uri="{{ route('admin.late.edit', '') }}" 
         create-uri="{{ route('admin.late.create') }}"
         detail-uri="{{  route('admin.late.detail', '') }}"
+        print-uri="{{ route('admin.late.print', '') }}"
         >
     </late-recap-table>
 @endsection

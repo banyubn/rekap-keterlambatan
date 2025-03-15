@@ -5,7 +5,8 @@
         late-uri={{ route('api.late.detail', $id) }}
         student-uri={{ route('api.student.show', $id) }}
         recap-uri={{ route('admin.late.recapitulation') }}
-        banner-src={{ asset('assets/img/banner.png') }}
+        banner-src={{ asset('storage/') }}
+        default-banner-src={{ asset('assets/img/banner.png') }}
         >
     </late-detail>
 @endsection

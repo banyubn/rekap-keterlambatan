@@ -21,6 +21,16 @@ class StudentController extends Controller
             });
         }
 
+        if ($request->sortBy) {
+            if ($request->sortBy == 'created_at') {
+                $student->orderBy('created_at', 'DESC');
+            }
+
+            if ($request->sortBy == 'name') {
+                $student->orderBy('name', 'ASC');
+            }
+        }
+
         $student = $student->get();
 
         if ($student->count() == 0) {

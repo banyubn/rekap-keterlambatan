@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,5 +47,13 @@ class LateController extends Controller
             case 'ps':
                 return view('ps.late.detail', compact('id'));
         }
+    }
+
+    public function print($id) 
+    {
+        $student = Student::with('rombel', 'rayon')->find($id)->toArray();
+
+        $pdf = Pdf::loadView('admin.late.print', ['student' => $student]);
+        return $pdf->download('Keterlambatan ' . $student['nis'] . ' ' . $student['name'] . ' ' . \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') . '.pdf');
     }
 }

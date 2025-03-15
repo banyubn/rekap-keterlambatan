@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/test', function () {
-//     return response()->json(['message' => 'nigger']);
-// });
+Route::get('/test', function () {
+    return response()->json(['message' => 'test']);
+});
 
 // Route::ApiResource('/student', StudentController::class);
 
@@ -56,5 +56,4 @@ Route::name('api.')->group(function () {
     Route::put('/late/{id}', [LateController::class, 'update'])->name('late.update');
     Route::post('/late', [LateController::class, 'store'])->name('late.store');
     Route::delete('/late/{id}', [LateController::class, 'destroy'])->name('late.destroy');
-
 });

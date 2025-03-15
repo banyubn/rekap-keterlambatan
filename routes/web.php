@@ -51,6 +51,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->gro
     Route::get('/late/detail/student/{id}', [LateController::class, 'detail'])->name('late.detail');
     Route::get('/late/create', [LateController::class, 'create'])->name('late.create');
     Route::get('/late/edit/{id}', [LateController::class, 'edit'])->name('late.edit');
+    Route::get('/late/print/{id}', [LateController::class, 'print'])->name('late.print');
 });
 
 Route::middleware(['auth', 'role:ps'])->prefix('/ps')->name('ps.')->group(function () {

@@ -74,6 +74,7 @@
                 v-if="item.count >= 3"
                 elevation="1"
                 class="mr-2"
+                :href="printUri + '/' + item.student.id"
             >
                 Cetak Surat Pernyataan
             </v-btn>
@@ -93,6 +94,7 @@ export default {
         rayonUri: String,
         authId: String,
         editUri: String,
+        printUri: String,
     },
     data() {
         return {
